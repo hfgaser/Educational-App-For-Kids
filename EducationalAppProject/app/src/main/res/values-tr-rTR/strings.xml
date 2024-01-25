@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">2004projeSon</string>
+    <string name="time">ZAMAN</string>
+    <string name="visual">GÖRSEL</string>
+    <string name="math">MATEMATİK</string>
+    <string name="time3" >time3</string>
+    <string name="time4" >time4</string>
+    <string name="time5" >time5</string>
+    <string name="time6" >time6</string>
+    <string name="math7" >math7</string>
+    <string name="math8" >math8</string>
+    <string name="math11" >math11</string>
+    <string name="visual9" >visual9</string>
+    <string name="visual10" >visual10</string>
+    <string name="visual12" >visual12</string>
+    <string name="visual13" >visual13</string>
+    <string name="math_learn" >ÖĞREN</string>
+    <string name="math_play" >OYNA</string>
+    <string name="welcome" >Matematik Aktivitesine Hoşgeldin!</string>
+    <string name="tutorial7" >Bu Etkinlikte Sana Bir Sayı Gösterilecek ve Bunları Hatırlamalısın.Aşağıdaki Alana Doğru Cevabı Girmen Gerekecektir.</string>
+    <string name="start_button" >BAŞLA</string>
+    <string name="try_again" >TEKRAR DENE</string>
+    <string name="check_button" >KONTROL ET</string>
+    <string name="enter_your_answer" >CEVABINI GİR</string>
+    <string name="skip_button" >GEÇ</string>
+    <string name="welcome_math_7" >Matematik Aktivitesine Hoşgeldin!</string>
+    <string name="well_done">Tebrikler!</string>
+    <string name="try_again_toast" >"Daha fazla pratik yapmalısın. Denemekten vazgeçme ! Lütfen tekrar dene. "</string>
+    <string name="correct_answer" >Doğru Cevap!</string>
+    <string name="incorrect_answer" >Yanlış Cevap.</string>
+    <string name="invalid_input" >"Geçersiz Sayı. Lütfen geçerli bir sayı girin. "</string>
+    <string name="great_job" >İyi iş çıkardın!</string>
+    <string name="congrats" >Tebrikler! İyi iş çıkardın! </string>
+    <string name="pls_enter_your_answer" >Lütfen cevabını gir.</string>
+    <string name="tutorial8" >Bu Etkinlikte Sana Bir Sayı Gösterilecek ve Bunları Tersten Hatırlamalısın! Aşağıdaki Alana Doğru Cevabı Girmen Gerekecektir.</string>
+    <string name="math_activities">İşte Matematik Etkinlikleri!\n\nBirini Seç ve Başla!</string>
+    <string name="tutorial11" >Matematik Oyununa Hoş Geldiniz!\n\nBu oyunda çarpma işlemini öğreneceksiniz.\n\nBaşlamak için Başlat\'a basın.</string>
+    <string name="menu"> MENÜ </string>
+</resources>
