@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Random;
 
 public class sixthSeasonActivity extends AppCompatActivity {
@@ -19,6 +23,9 @@ public class sixthSeasonActivity extends AppCompatActivity {
             "What season is October in?","What season is May in?","What is the hottest season of the year?",
             "What season do flowers bloom?","In what season is a snowman made?","In which season do the leaves of the trees turn yellow?"};
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
     private TextView qText;
     private ImageView spiderman;
     private Button winter,spring,summer,autumn;
@@ -42,6 +49,9 @@ public class sixthSeasonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
+        CurrentName = currentname;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sixth_season);
 
@@ -179,7 +189,9 @@ public class sixthSeasonActivity extends AppCompatActivity {
                 buttonN.setVisibility(View.GONE);
 
                 if(index == 6){
+                    userRef.child(CurrentName).child("score_seasons").setValue(point);
                     Intent intent = new Intent(sixthSeasonActivity.this, Time_menu.class);
+                    intent.putExtra("username",currentname);
                     startActivity(intent);
                 }
 

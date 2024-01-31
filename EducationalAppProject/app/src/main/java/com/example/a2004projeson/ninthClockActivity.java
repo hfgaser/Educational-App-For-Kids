@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class ninthClockActivity extends AppCompatActivity {
 
     private Button buttonC;
@@ -17,6 +21,9 @@ public class ninthClockActivity extends AppCompatActivity {
     private Button buttonW3;
     private Button buttonCheck;
     private Button buttonN;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
     private TextView textView;
 
     int select_num;
@@ -27,6 +34,9 @@ public class ninthClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
+        CurrentName = currentname;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ninth_clock);
         textView = findViewById(R.id.score_num);
@@ -125,8 +135,10 @@ public class ninthClockActivity extends AppCompatActivity {
         buttonN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                userRef.child(CurrentName).child("score_clock").setValue(point);
                 Intent intent = new Intent(ninthClockActivity.this, Time_menu.class);
                 intent.putExtra("score_p", point);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class fifthClockActivity extends AppCompatActivity {
     private Button buttonC;
@@ -28,6 +29,8 @@ public class fifthClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth_clock);
         buttonC = findViewById(R.id.correct_answer);
@@ -37,7 +40,6 @@ public class fifthClockActivity extends AppCompatActivity {
         buttonN = findViewById(R.id.next_button_5);
         buttonCheck = findViewById(R.id.check_button_1);
         textView = findViewById(R.id.score_num);
-
         buttonC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,8 +126,8 @@ public class fifthClockActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(fifthClockActivity.this, sixthClockActivity.class);
                 intent.putExtra("score_p", point);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 

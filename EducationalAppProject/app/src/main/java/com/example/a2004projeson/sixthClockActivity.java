@@ -27,6 +27,8 @@ public class sixthClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sixth_clock);
         textView = findViewById(R.id.score_num);
@@ -126,8 +128,8 @@ public class sixthClockActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(sixthClockActivity.this, seventhClockActivity.class);
                 intent.putExtra("score_p", point);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 

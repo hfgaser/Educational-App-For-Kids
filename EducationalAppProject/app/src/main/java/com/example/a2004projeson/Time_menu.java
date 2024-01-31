@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class Time_menu extends AppCompatActivity {
-private Button button22;
+    private Button button22;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_menu);
         ImageView clock = findViewById(R.id.clock);
@@ -24,6 +26,7 @@ private Button button22;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), firstClockActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });
@@ -31,6 +34,7 @@ private Button button22;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), firstWeekActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });
@@ -38,6 +42,7 @@ private Button button22;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), firstMonthActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });
@@ -45,6 +50,7 @@ private Button button22;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), firstSeasonActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });
@@ -52,7 +58,7 @@ private Button button22;
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getBaseContext(), Menu.class);
-//                it.putExtra("username",currentname);
+                it.putExtra("username",currentname);
                 startActivity(it);
             }
         });

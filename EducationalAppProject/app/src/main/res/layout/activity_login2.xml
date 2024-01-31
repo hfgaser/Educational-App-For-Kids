@@ -4,12 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#943F51B5"
+    android:background="#fffddb"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
     tools:context=".Login">
 
+
+    <ImageView
+        android:id="@+id/tr_btn"
+        android:layout_width="107dp"
+        android:layout_height="79dp"
+        app:srcCompat="@drawable/turkbayragi" />
+
+    <ImageView
+        android:id="@+id/en_btn"
+        android:layout_width="86dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/engbayragi" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -61,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#A9F87248 "
-        android:text="click to register"
+        android:text="@string/register"
         android:textAllCaps="true"
         android:textColor="#020101"
         android:textStyle="bold" />

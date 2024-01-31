@@ -11,10 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Math_menu extends AppCompatActivity {
 
-private Button button20;
+    private Button button20;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_menu);
 
@@ -27,6 +29,7 @@ private Button button20;
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getBaseContext(), Math8.class);
+                it.putExtra("username", currentname);
                 startActivity(it);
             }
         });
@@ -34,6 +37,7 @@ private Button button20;
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getBaseContext(), Math7.class);
+                it.putExtra("username", currentname);
                 startActivity(it);
             }
         });
@@ -41,6 +45,7 @@ private Button button20;
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getBaseContext(), Math11.class);
+                it.putExtra("username", currentname);
                 startActivity(it);
             }
         });
@@ -48,27 +53,9 @@ private Button button20;
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getBaseContext(), Menu.class);
-//                it.putExtra("username",currentname);
+                it.putExtra("username", currentname);
                 startActivity(it);
             }
         });
     }
-
-
-
-
-
-//    public void math7(View view) {
-//        Intent it = new Intent(getBaseContext(), Math7.class);
-//        startActivity(it);
-//    }
-//    public void math8(View view) {
-//        Intent it = new Intent(getBaseContext(), Math8.class);
-//        startActivity(it);
-//    }
-//    public void math11(View view) {
-//        Intent it = new Intent(getBaseContext(), Math11.class);
-//        startActivity(it);
-//    }
 }
-

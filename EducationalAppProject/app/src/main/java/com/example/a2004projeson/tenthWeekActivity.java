@@ -27,6 +27,8 @@ public class tenthWeekActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tenth_week);
         textView = findViewById(R.id.score_num);
@@ -126,6 +128,7 @@ public class tenthWeekActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(tenthWeekActivity.this, eleventhWeekActivity.class);
+                intent.putExtra("username",currentname);
                 intent.putExtra("score_p", point);
                 startActivity(intent);
                 finish();

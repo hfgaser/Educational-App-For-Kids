@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class seventhClockActivity extends AppCompatActivity {
 
@@ -28,6 +29,8 @@ public class seventhClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seventh_clock);
         textView = findViewById(R.id.score_num);
@@ -128,8 +131,8 @@ public class seventhClockActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(seventhClockActivity.this, eightClockActivity.class);
                 intent.putExtra("score_p", point);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
     }

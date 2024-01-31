@@ -13,6 +13,8 @@ public class fourthOneClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth_one_clock);
 
@@ -23,8 +25,8 @@ public class fourthOneClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(fourthOneClockActivity.this, fifthClockActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -32,8 +34,8 @@ public class fourthOneClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(fourthOneClockActivity.this, fourthClockActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
     }

@@ -70,7 +70,7 @@
         android:id="@+id/back_button"
         android:layout_width="159dp"
         android:layout_height="60dp"
-        android:text="Back"
+        android:text="@string/back"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +84,7 @@
         android:id="@+id/digital_hour"
         android:layout_width="366dp"
         android:layout_height="80dp"
-        android:text="In the digital clock, this part shows the hour. Each time the one hour pass, the number here increases by one."
+        android:text="@string/in_the_digital_clock_this_part_shows_the_hour_each_time_the_one_hour_pass_the_number_here_increases_by_one"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -97,7 +97,7 @@
         android:id="@+id/digital_minute"
         android:layout_width="366dp"
         android:layout_height="80dp"
-        android:text="In the digital clock, this part shows the minute. Each time the one minute pass, the number here increases by one."
+        android:text="@string/in_the_digital_clock_this_part_shows_the_minute_each_time_the_one_minute_pass_the_number_here_increases_by_one"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -121,7 +121,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/digital_hour"
         app:layout_constraintVertical_bias="0.034"
-        app:srcCompat="@drawable/arrow2" />
+        app:srcCompat="@drawable/arrow1" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -134,6 +134,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/clock_pic"
         app:layout_constraintVertical_bias="0.933"
-        app:srcCompat="@drawable/arrow2" />
+        app:srcCompat="@drawable/arrow1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

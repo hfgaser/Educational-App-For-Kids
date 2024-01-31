@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fffddb"
-    tools:context=".thirdClockActivity">
+    tools:context=".thirdMonthActivity">
 
     <TextView
         android:id="@+id/Months_title"
@@ -13,7 +13,7 @@
         android:layout_height="51dp"
         android:background="#39B4DA"
         android:gravity="center_vertical"
-        android:text="Months of the Year"
+        android:text="@string/months_of_the_year"
         android:textAlignment="viewStart"
         android:textColor="#FAC602"
         android:textSize="34sp"
@@ -39,7 +39,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Earth revolves around the sun in 365 days. We divide these 365 days into 12 parts and call them months."
+        android:text="@string/earth_revolves_around_the_sun_in_365_days_we_divide_these_365_days_into_12_parts_and_call_them_months"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="20sp"
@@ -55,7 +55,7 @@
         android:layout_width="277dp"
         android:layout_height="62dp"
         android:layout_marginBottom="16dp"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -69,7 +69,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Months consist of 30 and 31 days. Only February contains 28 days."
+        android:text="@string/months_consist_of_30_and_31_days_only_february_contains_28_days"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold|italic"

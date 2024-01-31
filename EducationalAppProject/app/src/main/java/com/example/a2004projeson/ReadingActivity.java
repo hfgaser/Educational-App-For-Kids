@@ -214,7 +214,7 @@ public class ReadingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(bee_index == 6){
-                    Debugger.setText("Congrats you found the bee!!!");
+                    Debugger.setText(R.string.Congrats);
                     index++;
                     bee_index++;
                     score+= 50;

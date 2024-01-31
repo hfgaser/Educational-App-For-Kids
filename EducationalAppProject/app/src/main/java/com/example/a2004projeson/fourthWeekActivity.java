@@ -28,6 +28,8 @@ public class fourthWeekActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth_week);
         textView = findViewById(R.id.score_num);
@@ -126,8 +128,8 @@ public class fourthWeekActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(fourthWeekActivity.this, fifthWeekActivity.class);
                 intent.putExtra("score_p", point);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 

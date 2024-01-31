@@ -56,4 +56,5 @@
     <string name="math_activities" >Here is the Math Activities!\n\nPick One and Start!</string>
     <string name="tutorial11" >Welcome to Math Game!\n\nIn this game,you will learn multiplication.\n\nPress Start to begin.</string>
     <string name="menu">MENU </string>
+    <string name="Congrats" />
 </resources>

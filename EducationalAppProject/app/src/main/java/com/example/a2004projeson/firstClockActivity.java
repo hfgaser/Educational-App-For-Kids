@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class firstClockActivity extends AppCompatActivity {
@@ -14,6 +15,8 @@ public class firstClockActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_clock);
         buttonN = findViewById(R.id.next_button);
@@ -23,6 +26,7 @@ public class firstClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(firstClockActivity.this, secondClockActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
 
             }
@@ -31,6 +35,7 @@ public class firstClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(firstClockActivity.this, Time_menu.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
 
             }

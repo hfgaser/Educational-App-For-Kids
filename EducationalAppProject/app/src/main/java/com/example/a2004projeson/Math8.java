@@ -1,6 +1,7 @@
 package com.example.a2004projeson;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -9,9 +10,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +34,7 @@ public class Math8 extends AppCompatActivity {
 
     private Button buttonSkip;
 
+    int score = 0;
 
     private TextView textViewResult;
 
@@ -39,11 +46,16 @@ public class Math8 extends AppCompatActivity {
     private int currentDigitIndex;
     private int targetNumber;
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
     private ImageView imageView2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        CurrentName = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math8);
 
@@ -58,7 +70,6 @@ public class Math8 extends AppCompatActivity {
         buttonSkip = findViewById(R.id.buttonSkip);
         imageView2 = findViewById(R.id.imageView2);
 
-
         handler = new Handler();
 
         buttonStart7.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +83,7 @@ public class Math8 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer();
+                userRef.child(CurrentName).child("score_digits1").setValue(score);
             }
         });
 
@@ -166,11 +178,13 @@ public class Math8 extends AppCompatActivity {
         try {
             int userAnswer = Integer.parseInt(reversedUserInput);
             if (userAnswer == targetNumber) {
+                score += 30;
                 textViewResult.setText(R.string.correct_answer);
                 isAnswerCorrect = true;
                 hideInputSection();
                 correctAnswersCount++;
             } else {
+                score -= 20;
                 textViewResult.setText(R.string.incorrect_answer);
                 isAnswerCorrect = false;
             }

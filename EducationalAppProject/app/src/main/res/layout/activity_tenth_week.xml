@@ -97,7 +97,7 @@
         android:id="@+id/textView4"
         android:layout_width="173dp"
         android:layout_height="88dp"
-        android:text="What is the 5th day of  the week?"
+        android:text="@string/what_is_the_5th_day_of_the_week"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"

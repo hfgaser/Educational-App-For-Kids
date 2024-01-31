@@ -184,7 +184,7 @@
         android:id="@+id/back_button"
         android:layout_width="159dp"
         android:layout_height="60dp"
-        android:text="Back"
+        android:text="@string/back"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

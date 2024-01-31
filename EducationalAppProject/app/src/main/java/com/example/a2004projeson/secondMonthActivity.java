@@ -14,6 +14,8 @@ public class secondMonthActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_month);
         buttonN = findViewById(R.id.next_button);
@@ -22,6 +24,7 @@ public class secondMonthActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(secondMonthActivity.this, thirdMonthActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });

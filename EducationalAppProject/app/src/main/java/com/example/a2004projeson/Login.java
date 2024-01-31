@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,7 +18,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity {
+public class Login extends AppCompat {
     TextInputEditText editTextEmail, editTextPassword;
     Button buttonlog;
     FirebaseAuth mAuth;
@@ -32,6 +33,25 @@ public class Login extends AppCompatActivity {
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         buttonlog = findViewById(R.id.btn_login);
+
+        ImageView tr_btn = findViewById(R.id.tr_btn);
+        ImageView en_btn = findViewById(R.id.en_btn);
+        LanguageManager lang = new LanguageManager(this);
+
+        tr_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lang.updateResource("tr");
+                recreate();
+            }
+        });
+        en_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lang.updateResource("en");
+                recreate();
+            }
+        });
 
         goreg.setOnClickListener(new View.OnClickListener() {
             @Override

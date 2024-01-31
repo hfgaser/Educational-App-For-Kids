@@ -93,7 +93,7 @@
         android:id="@+id/textView2"
         android:layout_width="345dp"
         android:layout_height="97dp"
-        android:text="For the minute hand, all the lines on the sides show you the minute. Each line represents 1 minute."
+        android:text="@string/for_the_minute_hand_all_the_lines_on_the_sides_show_you_the_minute_each_line_represents_1_minute"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

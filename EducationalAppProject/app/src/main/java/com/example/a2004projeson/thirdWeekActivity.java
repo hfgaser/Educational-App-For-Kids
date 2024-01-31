@@ -12,6 +12,8 @@ public class thirdWeekActivity extends AppCompatActivity {
     private Button buttonN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third_week);
         buttonB = findViewById(R.id.back_button_1);
@@ -21,6 +23,7 @@ public class thirdWeekActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(thirdWeekActivity.this, fourthWeekActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });
@@ -30,6 +33,7 @@ public class thirdWeekActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(thirdWeekActivity.this, secondWeekActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
             }
         });

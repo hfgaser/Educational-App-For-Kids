@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class secondClockActivity extends AppCompatActivity {
     private Button button;
     private Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_clock);
         button = findViewById(R.id.next_button);
@@ -21,8 +24,8 @@ public class secondClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(secondClockActivity.this, thirdClockActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -30,8 +33,8 @@ public class secondClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(secondClockActivity.this, firstClockActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.a2004projeson;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -11,6 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.intellij.lang.annotations.Language;
 import org.w3c.dom.Text;
 
@@ -19,6 +24,12 @@ import java.util.Random;
 public class Math11 extends AppCompatActivity {
     private TextView textViewTutorial;
     private Button buttonStart;
+
+    int score = 0;
+
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
     private TextView textViewEquation;
     private Button buttonOption1;
     private Button buttonOption2;
@@ -42,6 +53,8 @@ public class Math11 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        CurrentName = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math11);
 
@@ -95,6 +108,7 @@ public class Math11 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer();
+                userRef.child(CurrentName).child("multiplication").setValue(score);
             }
         });
 
@@ -227,10 +241,12 @@ public class Math11 extends AppCompatActivity {
         int selectedAnswer = Integer.parseInt(selectedButton.getText().toString());
 
         if (selectedAnswer == correctAnswer) {
+            score += 30;
             textViewResult.setText(R.string.correct_answer);
 //            selectedButton.setBackgroundColor(Color.GREEN);
             correctCount++;
         } else {
+            score -= 20;
             textViewResult.setText(R.string.incorrect_answer);
 //            selectedButton.setBackgroundColor(Color.RED);
         }

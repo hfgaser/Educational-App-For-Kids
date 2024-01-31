@@ -13,6 +13,8 @@ public class fifthSeasonActivity extends AppCompatActivity {
     private Button buttonN,buttonB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fifth_season);
 
@@ -24,8 +26,8 @@ public class fifthSeasonActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(fifthSeasonActivity.this, sixthSeasonActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -33,8 +35,8 @@ public class fifthSeasonActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(fifthSeasonActivity.this, fourthSeasonActivity.class);
+                intent.putExtra("username",currentname);
                 startActivity(intent);
-                finish();
             }
         });
     }

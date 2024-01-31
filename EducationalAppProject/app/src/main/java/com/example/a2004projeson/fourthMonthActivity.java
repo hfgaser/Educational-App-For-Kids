@@ -16,9 +16,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Random;
 
 public class fourthMonthActivity extends AppCompatActivity {
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
 
     private String[] question = {"What is the first month of the year?", "Next month is March. What is this month?",
             "Last month was February. What is this month?", "What is the fourth month of the year?",
@@ -43,6 +50,9 @@ public class fourthMonthActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
+        CurrentName = currentname;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fourth_month);
         qText = findViewById(R.id.queText);
@@ -311,7 +321,9 @@ public class fourthMonthActivity extends AppCompatActivity {
                 buttonN.setVisibility(View.GONE);
 
                 if(index == 6){
+                    userRef.child(CurrentName).child("score_months").setValue(point);
                     Intent intent = new Intent(fourthMonthActivity.this, Time_menu.class);
+                    intent.putExtra("username",currentname);
                     startActivity(intent);
                 }
 

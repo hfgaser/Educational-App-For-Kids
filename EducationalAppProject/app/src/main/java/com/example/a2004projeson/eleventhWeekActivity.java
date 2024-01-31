@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.sql.Time;
 
 public class eleventhWeekActivity extends AppCompatActivity {
@@ -23,6 +27,9 @@ public class eleventhWeekActivity extends AppCompatActivity {
     private Button buttonC;
     private Button buttonN;
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
     private TextView MONDAY;
     private TextView TUESDAY;
     private TextView WEDNESDAY;
@@ -38,6 +45,9 @@ public class eleventhWeekActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String currentname = intent.getStringExtra("username");
+        CurrentName = currentname;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eleventh_week);
         monday = findViewById(R.id.monday_b);
@@ -234,9 +244,10 @@ public class eleventhWeekActivity extends AppCompatActivity {
                     buttonC.setVisibility(view.VISIBLE);
                     buttonN.setVisibility(view.GONE);
                 }else{
+                    userRef.child(CurrentName).child("score_Weeks").setValue(point);
                     Intent intent = new Intent(eleventhWeekActivity.this, Time_menu.class);
+                    intent.putExtra("username",currentname);
                     startActivity(intent);
-                    finish();
                 }
             }
         });

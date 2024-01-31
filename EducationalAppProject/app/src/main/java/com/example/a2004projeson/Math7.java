@@ -15,6 +15,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -31,10 +35,13 @@ public class Math7 extends AppCompatActivity {
     private Button button16;
     private TextView textViewResult;
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users");
+    String CurrentName;
     private Handler handler;
     private boolean isAnswerCorrect;
     private int correctAnswersCount;
-
+    int score = 0;
     private List<Integer> digitCounts;
     private int currentDigitIndex;
     private int targetNumber;
@@ -46,6 +53,7 @@ public class Math7 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
         String currentname = intent.getStringExtra("username");
+        CurrentName = currentname;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math7);
         textViewDigits = findViewById(R.id.textViewDigits);
@@ -72,6 +80,7 @@ public class Math7 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkAnswer();
+                userRef.child(CurrentName).child("score_digits0").setValue(score);
             }
         });
 
@@ -173,11 +182,13 @@ public class Math7 extends AppCompatActivity {
             int userAnswer = Integer.parseInt(userInput);
             if (userAnswer == targetNumber) {
                 textViewResult.setText(R.string.correct_answer);
+                score += 30;
                 isAnswerCorrect = true;
                 hideInputSection();
                 correctAnswersCount++;
             } else {
                 textViewResult.setText(R.string.incorrect_answer);
+                score -= 10;
                 isAnswerCorrect = false;
             }
             editTextInput.getText().clear();
