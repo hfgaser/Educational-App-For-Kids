@@ -9,7 +9,7 @@ This Android Studio project is a learning app designed for children aged 7-10. T
 - **Login and Sign-up:** The app allows users to log in with their credentials or sign up for a new account using Firebase authentication.
 <img src="https://github.com/hfgaser/Educational-App-For-Kids/blob/main/EducationalAppProject/Screenshots/ss_login.png" width="200" alt="Main Menu">
 
-- **Main Menu:** Upon successful login, children are taken to the main menu, which displays a top bar showing the current XP and username of the user.
+- **Main Menu:** Upon successful login, children are taken to the main menu.
 
 <img src="https://github.com/hfgaser/Educational-App-For-Kids/blob/main/EducationalAppProject/Screenshots/ss_menu.png" width="200" alt="Main Menu">
 
