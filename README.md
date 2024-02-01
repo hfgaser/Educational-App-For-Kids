@@ -33,7 +33,7 @@ This Android Studio project is a learning app designed for children aged 7-10. T
   7. Learn Spelling
 
   8. Remember Digits
-   
+ <img src="https://github.com/hfgaser/Educational-App-For-Kids/blob/main/EducationalAppProject/Screenshots/ss_math_game2.png" width="200" alt="Main Menu">
   9. Remember Digits Backward
    
   10. Find Similar Images
